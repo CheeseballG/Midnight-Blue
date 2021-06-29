@@ -27,3 +27,21 @@ p {
     width:389px;
     height:60px;
 }
+
+.Part-Clicker {
+  transition: 0.15s;
+  display: block;
+  z-index: 12;
+  margin-left: auto;
+  margin-right: auto;
+  width: 263px;
+  cursor: pointer;
+}
+
+.Part-Clicker {
+  animation: wiggle 2s;
+}
+
+.Part-Clicker:active {
+  transform: scale(0.8);
+}

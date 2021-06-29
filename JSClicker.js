@@ -10,7 +10,7 @@ var cookiecount = 0;
                 if (cookiecount == 50) {
                     if (fights == 0) {
                         alert("The boss is here! Go to the other window to slay it!")
-                        window.open = "robofight.html"
+                        window.open("FightDay1.html")
                         fights++
                     }
                 }

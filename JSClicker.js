@@ -6,7 +6,7 @@ scrapbutton.addEventListener("click", function clicker() {
 scrap++
 });
 
-    if (scrap = 50) {window.location.href = "fileforfight"}
+    if (cookiecount = 50) {window.location.href = "fileforfight"}
 
 //log when user clicks on png, then award them with scrap
 

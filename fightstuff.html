@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>FIGHT!</title>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>FIGHT!</title>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    </head>
+
+    <body>
+        <div>Peepoo</div>
+<button type = "button" class = "btn btn-danger" id = “punchButton” onclick="doPunch()"> Punch </button>
+<button type = "button" class = "btn btn-success" id = “healButton” onclick="doHeal()"> heal </button>
+<button type = "button" class = "btn btn-warning" id = "spellButton" onclick="doSpell()"> spell</button>
+
+
+
+
+
+
+        <script>
+          
+
+            var playerHealth = 10;
+            var enemyHealth = 10;
+            var playerDamage = 3;
+        	var enemyDamage = 5;
+        	var healPoints = 5;
+
+
+
+
+	function doPunch(){
+		enemyHealth = enemyHealth - playerDamage
+		alert(enemyHealth);
+    };
+    function doHeal(){
+        playerHealth = playerHealth + healPoints
+        alert(playerHealth);
+    }
+    function doSpell(){
+        enemyDamage = enemyDamage - 1
+        alert(enemyDamage);
+    }
+
+
+
+	if(scrapPoints === 100 || timer === 0)
+            {
+                alert("Fight is starting");
+
+		for(var i = enemyHealth; i < 1;)
+                {
+                    alert("Your turn");
+                    $("#“punchButton").on("click", function()
+                        {
+                            alert("You did 3 damage");
+
+                            enemyHealth = enemyHealth - playerDamage;
+                        })
+                }
+
+
+            }
+
+
+
+        </script>
+    </body>
+
+</html>
+
+
+    </head>
+
+    <body>
+        <div>Peepoo</div>
+<button type = “button” class = “btn btn-danger ” id = “punchButton” onclick="doPunch()"> Punch </button>
+<button type = “button” class = “btn btn-success” id = “healButton” onclick="doHeal()"> heal </button>
+<button type = “button” class = “btn btn-warning” id = “spellButton onclick="doSpell()"> Unlocked until 3rd fight</button>
+<button type = “button” class = “btn btn-danger” id = “kickbutton” onclick="doKick()"> unlocked until 5th fight </button>
+
+
+
+
+
+
+        <script>
+          
+
+            var playerHealth = 10;
+            var enemyHealth = 10;
+            var playerDamage = 3;
+        	var enemyDamage = 5;
+        	var healPoints = 5;
+
+
+
+
+	function doPunch(){
+		enemyHealth = enemyHealth - playerDamage
+		alert(enemyHealth);
+};
+
+
+
+
+	if(scrapPoints === 100 || timer === 0)
+            {
+                alert("Fight is starting");
+
+		for(var i = enemyHealth; i < 1;)
+                {
+                    alert("Your turn");
+                    $("#“punchButton").on("click", function()
+                        {
+                            alert("You did 3 damage");
+
+                            enemyHealth = enemyHealth - playerDamage;
+                        })
+                }
+
+
+            }
+
+
+
+        </script>
+    </body>
+
+</html>

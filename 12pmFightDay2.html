@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FIGHT!</title>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FIGHT!</title>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    
+    </head>
+    <body style="background-color: black">
+        <div></div>
+        <button style = "position: absolute; left: 1210px; top: 550px;" type = "button" class = "btn btn-danger"  id = "punchButton" onclick="doPunch()"> Punch </button>
+        <button style = "position: absolute; left: 1156px; top: 550px;" type = "button" class = "btn btn-success" id = "healButton" onclick="doHeal()"> heal </button>
+        <button style = "position: absolute; left: 1280px; top: 550px;" type = "button" class = "btn btn-warning" id = "spellButton" onclick="doSpell()"> spell</button>
+        <progress style = "position: absolute; left: 1170px; top: 500px; background-color: #39FF14" id="health1" value="10" max="10"></progress>
+        <b style = "position: absolute; left: 1000px; top: 556px; color: #39FF14">Player Options:</b>
+        <script>
+            var playerHealth = 10;
+            var enemyHealth = 10;
+            var playerDamage = 3;
+            var enemyDamage = 5;
+            var healPoints = 5;
+    function doPunch(){
+        enemyHealth = enemyHealth - playerDamage
+        alert("You did " + playerDamage + " damage. Enemy has " + enemyHealth + " health left.");
+        if(enemyHealth <= 0)
+        {
+            alert("You won the fight");
+        }
+    };
+    function doHeal(){
+        var originalHealth = playerHealth;
+        playerHealth = playerHealth + healPoints;
+        if(playerHealth > 10)
+        {
+            playerHealth = 10;
+        }
+        var healthDiff = playerHealth - originalHealth;
+        let health = document.getElementById("health1");
+        health.value = playerHealth;
+        alert("You healed youself " + healthDiff + " hitpoints. You now have " + playerHealth + " hitpoints.");
+    }
+    function doSpell(){
+        enemyDamage = enemyDamage - 1
+        alert("You lowered the enemy's damage to " + enemyDamage + " damage.");
+        if(enemyDamage <= 0)
+        {
+            enemyDamage = 1;
+        }
+    }
+        </script>
+    </body>
+</html>

@@ -17,11 +17,21 @@
         <button style = "position: absolute; left: 676px; top: 350px;" type = "button" class = "btn btn-success" id = "healButton" onclick="doHeal()"> heal </button>
         <button style = "position: absolute; left: 730px; top: 350px;" type = "button" class = "btn btn-warning" id = "spellButton" onclick="doSpell()"> spell</button>
         <script>
-            var playerHealth = sessionStorage.getItem('robot.health');
+            var buffStats = false
+            var buffStats = sessionStorage.getItem("aboveTimer")
+            console.log(buffStats)
+            var playerHealth = 10;
             var enemyHealth = 10;
-            var playerDamage = sessionStorage.getItem('robot.damage');
+            var playerDamage = 3;
             var enemyDamage = 5;
-            var healPoints = sessionStorage.getItem('robot.healing')
+            var healPoints = 5;
+            if (buffStats = true) {
+                 playerHealth = 16;
+             enemyHealth = 10;
+             playerDamage = 5;
+             enemyDamage = 5;
+             healPoints = 10;
+            }
     function doPunch(){
         enemyHealth = enemyHealth - playerDamage
         alert("You did " + playerDamage + " damage. Enemy has " + enemyHealth + " health left.");

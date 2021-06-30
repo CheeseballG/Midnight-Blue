@@ -42,6 +42,15 @@ var cookiecount = 0;
                     alert("You did it! You win!")
                 }
             }
+
+            //timer code
+            var timeleft = 60;
+    var cookieTimer = setInterval(function(){
+    timeleft--;
+    document.getElementById("countdowntimer").textContent = timeleft;
+    if(timeleft <= 0)
+        clearInterval(cookieTimer);
+    },1000);
             
 
 
@@ -50,4 +59,3 @@ var cookiecount = 0;
 //log when user clicks on png, then award them with scrap
 
 // once goal is reached, send user to boss with stats
-

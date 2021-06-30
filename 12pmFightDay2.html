@@ -18,11 +18,19 @@
         <progress style = "position: absolute; left: 1170px; top: 500px; background-color: #39FF14" id="health1" value="10" max="10"></progress>
         <b style = "position: absolute; left: 1000px; top: 556px; color: #39FF14">Player Options:</b>
         <script>
+            var buffStats = false
+            var buffStats = sessionStorage.getItem("aboveTimer")
             var playerHealth = 10;
             var enemyHealth = 10;
             var playerDamage = 3;
             var enemyDamage = 5;
             var healPoints = 5;
+            if (buffStats !== "false") {
+                console.log("working")
+                 playerHealth = playerHealth + 6;
+             playerDamage = playerDamage + 2;
+             healPoints = healPoints + 3;
+            }
     function doPunch(){
         enemyHealth = enemyHealth - playerDamage
         alert("You did " + playerDamage + " damage. Enemy has " + enemyHealth + " health left.");

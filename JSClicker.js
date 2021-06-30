@@ -1,24 +1,25 @@
 //Javascript
 var cookiecount = 0;
         var fights = 0;
-        var timer = 0
         var robot = {health:10, defense:0, damage:3, healing:5}
         var aboveTimer = false;
             function Click() {
                cookiecount = cookiecount + 1
                document.getElementById('text').value = cookiecount; 
                Check();
+              
             }
             function Check() {
                 if (cookiecount == 50) {
                     if (fights == 0) {
-                        if (timer>0) {
+                        if (timeleft>0) {
                             aboveTimer = true;
                         sessionStorage.setItem("aboveTimer", "true");
                         alert("The boss is here! Go to the other window to slay it!");
                         window.open("FightDay1.html");
                         fights++;
                         cookiecount == 0;
+                        timeleft == 80
                          }
                         else {
                             aboveTimer = false;
@@ -26,16 +27,31 @@ var cookiecount = 0;
                             alert("The boss is here! You were too slow, and now you're not as strong! Go fight!");
                             window.open("FightDay1.html");
                             fights++;
-                            cookiecount == 0
+                            cookiecount = 0;
+                            timeleft = 80
                         }
                     }
                 }
                 if (cookiecount == 100) {
                 if (fights == 1) {
-                    alert("The boss is here! Go to the other window to slay it!")
-                    window.open("robofight.html")
-                    fights++
-
+                    if (timeleft>0) {
+                        aboveTimer = true;
+                            sessionStorage.setItem("aboveTimer", "true");
+                    alert("The boss is here! Go to the other window to slay it!");
+                    window.open("12pmFightDay2.html");
+                    fights++;
+                    cookiecount = 0;
+                            timeleft = 100
+                    }
+                    else 
+                    {aboveTimer = false;
+                        sessionStorage.setItem("aboveTimer", "false");
+                alert("The boss is here! Go to the other window to slay it!");
+                window.open("12pmFightDay2.html");
+                fights++;
+                cookiecount = 0;
+                        timeleft = 100
+                    }
                     }
                 }
                 if (cookiecount == 150) {

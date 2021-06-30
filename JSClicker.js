@@ -1,8 +1,9 @@
 //Javascript
 var cookiecount = 0;
         var fights = 0;
-        var timer = 2
+        var timer = 0
         var robot = {health:10, defense:0, damage:3, healing:5}
+        var aboveTimer = false;
             function Click() {
                cookiecount = cookiecount + 1
                document.getElementById('text').value = cookiecount; 
@@ -12,26 +13,20 @@ var cookiecount = 0;
                 if (cookiecount == 50) {
                     if (fights == 0) {
                         if (timer>0) {
-                            robot.health == robot.health + 5;
-                        robot.defense == robot.defense + 1;
-                        robot.damage == robot.damage + 2;
-                        robot.healing == robot.healing + 5;
-                        sessionStorage.setItem("robot", "health");
-                        sessionStorage.setItem("robot", "damage");
-                        sessionStorage.setItem("robot", "healing");
+                            aboveTimer = true;
+                        sessionStorage.setItem("aboveTimer", "true");
                         alert("The boss is here! Go to the other window to slay it!");
                         window.open("FightDay1.html");
                         fights++;
                         cookiecount == 0;
                          }
                         else {
+                            aboveTimer = false;
+                            sessionStorage.setItem("aboveTimer", "false");
                             alert("The boss is here! You were too slow, and now you're not as strong! Go fight!");
                             window.open("FightDay1.html");
                             fights++;
                             cookiecount == 0
-                            sessionStorage.setItem("robot", "health");
-                        sessionStorage.setItem("robot", "damage");
-                        sessionStorage.setItem("robot", "healing");
                         }
                     }
                 }

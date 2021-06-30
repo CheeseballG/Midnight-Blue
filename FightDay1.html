@@ -25,12 +25,11 @@
             var playerDamage = 3;
             var enemyDamage = 5;
             var healPoints = 5;
-            if (buffStats = true) {
-                 playerHealth = 16;
-             enemyHealth = 10;
-             playerDamage = 5;
-             enemyDamage = 5;
-             healPoints = 10;
+            if (buffStats !== "false") {
+                console.log("working")
+                 playerHealth = playerHealth + 6;
+             playerDamage = playerDamage + 2;
+             healPoints = healPoints + 3;
             }
     function doPunch(){
         enemyHealth = enemyHealth - playerDamage

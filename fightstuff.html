@@ -24,6 +24,7 @@
 
 
 
+        <script src = "JSClicker.js"> </script>
         <script>
           
 
@@ -37,11 +38,11 @@
 
 
 	function doPunch(){
-		enemyHealth = enemyHealth - playerDamage
+		enemyHealth = enemyHealth - robot[Damage]
 		alert(enemyHealth);
     };
     function doHeal(){
-        playerHealth = playerHealth + healPoints
+        playerHealth = playerHealth + robot[Healing]
         alert(playerHealth);
     }
     function doSpell(){

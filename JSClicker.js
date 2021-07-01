@@ -10,7 +10,6 @@ var cookiecount = 0;
               
             }
             function Check() {
-                if (cookiecount == 50) {
                     if (fights == 0) {
                         if (timeleft>0) {
                             aboveTimer = true;
@@ -31,7 +30,6 @@ var cookiecount = 0;
                             timeleft = 80
                         }
                     }
-                }
                 if (cookiecount == 100) {
                 if (fights == 1) {
                     if (timeleft>0) {
@@ -46,7 +44,7 @@ var cookiecount = 0;
                     else 
                     {aboveTimer = false;
                         sessionStorage.setItem("aboveTimer", "false");
-                alert("The boss is here! Go to the other window to slay it!");
+                alert("The boss is here! You weren't fast enough to be stronger, but go fight anyway!");
                 window.open("12pmFightDay2.html");
                 fights++;
                 cookiecount = 0;
@@ -83,6 +81,8 @@ var cookiecount = 0;
     if(timeleft <= 0)
         clearInterval(cookieTimer);
     },1000);
+
+    function submit() {}
             
 
 

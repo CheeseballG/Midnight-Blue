@@ -5,6 +5,10 @@ var cookiecount = 0;
         var fight1Outcome = sessionStorage.getItem("winner1")
         var fight2Outcome = "placeholder"
         var fight2Outcome = sessionStorage.getItem("winner2")
+        var fight3Outcome = "placeholder"
+        var fight3Outcome = sessionStorage.getItem("winner3")
+        var fight4Outcome = "placeholder"
+        var fight4Outcome = sessionStorage.getItem("winner4")
             function Click() {
                cookiecount = cookiecount + 1
                document.getElementById('text').value = cookiecount; 
@@ -59,23 +63,51 @@ var cookiecount = 0;
                     }
                 };
                 if (cookiecount == 150) {
-                    if (fights == 2) {
-                        alert("The boss is here! Go to the other window to slay it!")
-                        window.open("robofight.html")
-                        fights++
-                        cookiecount = 0
+                    if (fight2Outcome == "true") {
+                        if (fight3Outcome !== "true") {
+                            if (timeleft>0) {
+                                aboveTimer = true;
+                                sessionStorage.setItem("aboveTimer", "true");
+                        alert("The boss is here! Go to the other window to slay it!");
+                        window.open("FightDay3.html");
+                        cookiecount = 0;
+                        timeleft = 100
+                            }
+                            else {
+                                aboveTimer = false;
+                                sessionStorage.setItem("aboveTimer", "false")
+                                alert("The boss is here! You took too long, so no bonus for you!");
+                        window.open("FightDay3.html");
+                        cookiecount = 0;
+                        timeleft = 100
+                            }
+                        }
                     }
                 }
                 if (cookiecount == 250) {
-                    if (fights == 3) {
-                        alert("The boss is here! Go to the other window to slay it!")
-                        window.open("robofight.html")
-                        fights++
+                    if (fight3Outcome == "true") {
+                        if (fight4Outcome !== "true") {
+                            if (timeleft>0) {
+                                aboveTimer = false;
+                                sessionStorage.setItem("aboveTimer", "true")
+                        alert("The final boss is here! Go to the other window to slay it!")
+                        window.open("FightDay4.html")
                         cookiecount = 0
+                            }
+                        else {
+                        aboveTimer = false;
+                        sessionStorage.setItem("aboveTimer", "false");
+                        alert("The final boss is here! You may not have gotten the boost, but I still believe in you!");
+                        window.open("FightDay4.html");
+                        cookiecount = 0;
+                        timeleft = 120;
+                        }
+                        }
                     }
                 }
-                if (fights == 4) {
-                    alert("You did it! You win!")
+                if (fight4Outcome == "true") {
+                    alert("You did it! You win! Humanity is now enslaved to their robot overlords! Good job!")
+                    alert("Made by team Midnight Blue at Penn Coding Bootcamp")
                 }
             }
 

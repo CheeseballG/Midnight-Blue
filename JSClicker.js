@@ -3,6 +3,8 @@ var cookiecount = 0;
         var aboveTimer = false;
         var fight1Outcome = "placeholder"
         var fight1Outcome = sessionStorage.getItem("winner1")
+        var fight2Outcome = "placeholder"
+        var fight2Outcome = sessionStorage.getItem("winner2")
             function Click() {
                cookiecount = cookiecount + 1
                document.getElementById('text').value = cookiecount; 
@@ -17,7 +19,6 @@ var cookiecount = 0;
                         sessionStorage.setItem("aboveTimer", "true");
                         alert("The boss is here! Go to the other window to slay it!");
                         window.open("FightDay1.html");
-                        fights++;
                         cookiecount == 0;
                         timeleft == 100
                          }
@@ -28,34 +29,35 @@ var cookiecount = 0;
                             sessionStorage.setItem("aboveTimer", "false");
                             alert("The boss is here! You were too slow, and now you're not as strong! Go fight!");
                             window.open("FightDay1.html");
-                            fights++;
                             cookiecount = 0;
                             timeleft = 100
                             }
                         }
-                    }
+                    };
                 if (cookiecount == 100) {
                 if (fight1Outcome == "true") {
+                    if (fight2Outcome !== "true") {
                     if (timeleft>0) {
                         aboveTimer = true;
                             sessionStorage.setItem("aboveTimer", "true");
                     alert("The boss is here! Go to the other window to slay it!");
-                    window.open("12pmFightDay2.html");
-                    fights++;
+                    window.open("12pmFightDay2.html")
                     cookiecount = 0;
                             timeleft = 100
                     }
-                    else 
-                    {aboveTimer = false;
+                    else {
+                      if (fight2Outcome !== "true") {
+                          aboveTimer = false;
                         sessionStorage.setItem("aboveTimer", "false");
                 alert("The boss is here! You weren't fast enough to be stronger, but go fight anyway!");
                 window.open("12pmFightDay2.html");
-                fights++;
                 cookiecount = 0;
                         timeleft = 100
+                      }
+                      }
                     }
                     }
-                }
+                };
                 if (cookiecount == 150) {
                     if (fights == 2) {
                         alert("The boss is here! Go to the other window to slay it!")

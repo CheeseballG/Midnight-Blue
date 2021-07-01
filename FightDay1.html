@@ -98,12 +98,16 @@ if (buffStats !== "false") {
         if(enemyHealth <= 0)
         {
             alert("Having a superior computer brain, you have defeated this first human enemy.");
-            window.open("clicker.html")
+            var winner1 = true;
+            sessionStorage.setItem("winner1", "true")
+            window.open("clicker.html");
         }
         if(playerHealth <= 0)
         {
-            alert("You short circuited.")
-            window.open("clicker.html")
+            alert("You short circuited.");
+            var winner1 = false;
+            sessionStorage.setItem("winner1", "false");
+            window.open("clicker.html");
         }
     };
     function doHeal(){

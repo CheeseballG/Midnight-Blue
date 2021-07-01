@@ -1,8 +1,8 @@
 //Javascript
 var cookiecount = 0;
-        var fights = 0;
-        var robot = {health:10, defense:0, damage:3, healing:5}
         var aboveTimer = false;
+        var fight1Outcome = "placeholder"
+        var fight1Outcome = sessionStorage.getItem("winner1")
             function Click() {
                cookiecount = cookiecount + 1
                document.getElementById('text').value = cookiecount; 
@@ -10,7 +10,8 @@ var cookiecount = 0;
               
             }
             function Check() {
-                    if (fights == 0) {
+                if (cookiecount == 50) {
+                    if (fight1Outcome !== "true") {
                         if (timeleft>0) {
                             aboveTimer = true;
                         sessionStorage.setItem("aboveTimer", "true");
@@ -18,20 +19,23 @@ var cookiecount = 0;
                         window.open("FightDay1.html");
                         fights++;
                         cookiecount == 0;
-                        timeleft == 80
+                        timeleft == 100
                          }
+                        }
                         else {
+                            if (fight1Outcome !== "true") {
                             aboveTimer = false;
                             sessionStorage.setItem("aboveTimer", "false");
                             alert("The boss is here! You were too slow, and now you're not as strong! Go fight!");
                             window.open("FightDay1.html");
                             fights++;
                             cookiecount = 0;
-                            timeleft = 80
+                            timeleft = 100
+                            }
                         }
                     }
                 if (cookiecount == 100) {
-                if (fights == 1) {
+                if (fight1Outcome == "true") {
                     if (timeleft>0) {
                         aboveTimer = true;
                             sessionStorage.setItem("aboveTimer", "true");

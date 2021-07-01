@@ -3,46 +3,151 @@
     <head>
         <title>FIGHT!</title>
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-                <link rel = "stylesheet" href = "cssfileblank.css"/>
-
 <!DOCTYPE html>
 <html>
     <head>
         <title>FIGHT!</title>
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <style>
+            body {
+                background-image: url("https://c4.wallpaperflare.com/wallpaper/817/663/759/minimalism-ascii-art-dark-wallpaper-preview.jpg");
+                background-color: #CCCCCC;
+            }
+        </style>
     </head>
-    <body>
-        <div></div>
-        <button style = "position: absolute; left: 606px; top: 350px;" type = "button" class = "btn btn-danger"  id = "punchButton" onclick="doPunch()"> Punch </button>
-        <button style = "position: absolute; left: 676px; top: 350px;" type = "button" class = "btn btn-success" id = "healButton" onclick="doHeal()"> heal </button>
-        <button style = "position: absolute; left: 730px; top: 350px;" type = "button" class = "btn btn-warning" id = "spellButton" onclick="doSpell()"> spell</button>
+    <body style="background-color: black">
+        <div style = "position: absolute; left: 200px; top: 750px; color: greenyellow;">
+            <pre style = "color: green">
+                _
+                [ ]
+               (   )
+                |>|
+             __/===\__
+            //| o=o |\\
+          <]  | o=o |  [>
+              \=====/
+             / / | \ \
+            <_________>
+            </pre>
+        </div>
+        <div style = "position: absolute; left: 1100px; top: 50px; color: greenyellow;">
+            <pre style = "color: green">
+                                ____            ____            ____
+                                /....\          /....\          /....\
+                        .-.    |::::::|    .-. |::::::|    .-. |::::::|
+                        | |    |::::::|    | | |::::::|    | | |::::::|
+                        | |    (`:'':')    | | (`:'':')    | | (`:'':')
+                        | |   _--|__|--__  | |.--|__|--__  | |_--|__|--__
+                        | |  |   ________|_|_|_  ________|_|_|_  ________|_____
+                        | | /    |            |  |            |  |            |
+                        | |/  /  |            |  |            |  |            |
+                        |_| |/|  |            |  |            |  |            |
+                    (===)| |  |  M  U  P   |  |  M  U  P   |  |  M  U  P   |
+                    `==='  |`-|            |`-|            |`-|            |
+                        | |   |`-|            |`-|            |`-|            |
+                        |_|   |  |            |  |            |  |            |
+                            |  |            |  |            |  |            |
+                            |  |            |  |            |  |            |
+                            |`-|            |`-|            |`-|            |
+                            |__|            |__|            |__|            |
+                            /_ |            |_ |            |_ |            |
+                            |___`-__________-'__`-__________-'__`-__________-'
+            </pre>
+        </div>
+        <button style = "position: absolute; left: 1610px; top: 900px;" type = "button" class = "btn btn-danger"  id = "punchButton" onclick="doPunch()"> Punch </button>
+        <button style = "position: absolute; left: 1556px; top: 900px;" type = "button" class = "btn btn-success" id = "healButton" onclick="doHeal()"> heal </button>
+        <button style = "position: absolute; left: 1680px; top: 900px;" type = "button" class = "btn btn-warning" id = "spellButton" onclick="doSpell()"> spell</button>
+        <progress style = "position: absolute; left: 300px; top: 50px; background-color: #39FF14" id="health2" value="10" max="10"></progress>
+        <progress style = "position: absolute; left: 1570px; top: 850px; background-color: #39FF14" id="health1" value="10" max="10"></progress>
+        <b style = "position: absolute; left: 1400px; top: 920px; color: #39FF14">Player Options:</b>
+        <b style = "position: absolute; left: 1400px; top: 850px; color: #39FF14">Your Health Bar:</b>
+        <b style = "position: absolute; left: 1450px; top: 25px; color: #39FF14">Human Cops</b>
+        <b style = "position: absolute; left: 150px; top: 45px; color: #39FF14">Enemy Health Bar:</b>
         <script>
             var buffStats = false
-            var buffStats = sessionStorage.getItem("aboveTimer")
-            console.log(buffStats)
-            var playerHealth = 10;
-            var enemyHealth = 10;
-            var playerDamage = 3;
-            var enemyDamage = 5;
-            var healPoints = 5;
-            if (buffStats !== "false") {
-                console.log("working")
-                 playerHealth = playerHealth + 6;
-             playerDamage = playerDamage + 2;
-             healPoints = healPoints + 3;
-            }
-    function doPunch(){
-        enemyHealth = enemyHealth - playerDamage
+var buffStats = sessionStorage.getItem("aboveTimer")
+var fName = sessionStorage.getItem("firstName")
+var lName = sessionStorage.getItem("lastName")
+console.log(buffStats)
+var playerHealth = 10;
+var enemyHealth = 10;
+var playerDamage = 3;
+var enemyDamage = 5;
+var healPoints = 5;
+if (buffStats !== "false") {
+    console.log("working")
+     playerHealth = playerHealth + 6;
+ playerDamage = playerDamage + 2;
+ healPoints = healPoints + 3;
+}
+        function doPunch(){
+        enemyHealth = enemyHealth - playerDamage;
+        health2.value = enemyHealth;
         alert("You did " + playerDamage + " damage. Enemy has " + enemyHealth + " health left.");
+        var computerChanceToAttack = Math.floor(Math.random() * 10)
+        if(computerChanceToAttack === 0 || computerChanceToAttack === 1 || computerChanceToAttack === 2)
+        {
+            playerHealth = playerHealth - enemyDamage;
+            health1.value = playerHealth;
+            alert("The enemy human has managed to swipe his measly organic arm on your batteries. " + enemyDamage + " damage has been done to your air conditioner. Your cpu indicates that you have " + playerHealth + " HP left.")
+        }
+        else
+        {
+            alert("The enemy human, being the foolish biodegradeble object he is, has missed an attack on you.");
+        }
         if(enemyHealth <= 0)
         {
-            alert("You won the fight");
+            alert("Having a superior computer brain, you have defeated this first human enemy.");
+            window.open("clicker.html")
+        }
+        if(playerHealth <= 0)
+        {
+            alert("You short circuited.")
+            window.open("clicker.html")
         }
     };
     function doHeal(){
         var originalHealth = playerHealth;
         playerHealth = playerHealth + healPoints;
-        alert("You healed youself " + playerHealth + " hitpoints.");
+        if (buffStats == "false")
+         {if(playerHealth > 10)
+        {
+            playerHealth = 10;
+            alert("your health has hit " + playerHealth + " and you have reached maximum health. Can't heal anymore.")
+        }
+        else{
+                    alert("You healed youself " + healPoints + " hitpoints.");
+        }
+    }
+    else {if(playerHealth > 16)
+        {
+            playerHealth = 16;
+            alert("your health has hit " + playerHealth + " and you have reached maximum health. Can't heal anymore.")
+        }
+        else{
+                    alert("You healed youself " + healPoints + " hitpoints.");
+        }
+    }
+        var healthDiff = playerHealth - originalHealth;
+        var computerChanceToAttack2 = Math.floor(Math.random() * 10)
+        let health = document.getElementById("health1");
+        health.value = playerHealth;
+        if(computerChanceToAttack2 === 0 || computerChanceToAttack2 === 1 || computerChanceToAttack2 === 2)
+        {
+            playerHealth = playerHealth - enemyDamage;
+            alert("The enemy human has managed to swipe his measly organic arm on your batteries. " + enemyDamage + " damage has been done to your microwave. Your cpu indicates that you have " + playerHealth + " HP left.")
+            let health = document.getElementById("health1");
+            health.value = playerHealth;
+        }
+        else
+        {
+            alert("The enemy human, being the foolish biodegradeble object he is, has missed an attack on you.");
+        }
+        if(playerHealth <= 0)
+        {
+            alert("You short circuited.")
+            window.open("clicker.html")
+        }
     }
     function doSpell(){
         enemyDamage = enemyDamage - 1
@@ -51,7 +156,23 @@
         {
             enemyDamage = 1;
         }
+        var computerChanceToAttack3 = Math.floor(Math.random() * 10)
+        if(computerChanceToAttack3 === 0 || computerChanceToAttack3 === 1 || computerChanceToAttack3 === 2)
+        {
+            playerHealth = playerHealth - enemyDamage;
+            health1.value = playerHealth;
+            alert("The enemy human has managed to swipe his measly organic arm on your batteries. " + enemyDamage + " damage has been done to your speaker. Your cpu indicates that you have " + playerHealth + " HP left.")
+        }
+        else
+        {
+            alert("The enemy human, being the foolish biodegradeble object he is, has missed an attack on you.");
+        }
+        if(playerHealth <= 0)
+        {
+            alert("You short circuited.")
+            window.open("clicker.html")
+        }
     }
         </script>
     </body>
-</html>
+</html

@@ -8,10 +8,22 @@ body {
 }                                           
 
 p {
-    font-size: 20px;
-    color: white;
+    font-size: 25px;
+    color: black;
+    border-radius: 9pt;
     display: block;
-    margin: 5px;
+    margin: 5px;  
+    font-family: 'Press Start 2P', cursive;
+
+}
+
+p1,p3 { 
+   
+    font-size: 30px;
+    color: black;
+    display: block;
+    margin: 16px;  
+    font-family: 'Goldman', cursive;
 }
 
 #space {
@@ -24,8 +36,8 @@ p {
     border-radius:10px;
     background-color: greenyellow;
     color: white;
-    width:389px;
-    height:60px;
+    width:400px;
+    height:70px;
 }
 
 .Part-Clicker {
